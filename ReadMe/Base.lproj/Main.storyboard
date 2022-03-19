@@ -41,7 +41,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="a18-lB-1es" kind="show" id="lA8-hS-Pbg"/>
+                                    <segue destination="a18-lB-1es" kind="show" destinationCreationSelector="showDetailView:" id="lA8-hS-Pbg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -101,6 +101,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bVF-cX-m0b"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="7dX-uX-tUZ" id="Mlg-NZ-lA5"/>
+                        <outlet property="imageView" destination="bfw-Zm-AT0" id="W67-jr-ZFI"/>
+                        <outlet property="titleLabel" destination="yvx-wC-GcR" id="v7b-ve-bky"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ShJ-dn-cQU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,13 +8,28 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    let book : Book
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.image = book.image
+        titleLabel.text = book.title
+        authorLabel.text = book.author
 
         // Do any additional setup after loading the view.
     }
-    
+    required init?(coder: NSCoder) {
+        fatalError("this should never be called")
+    }
+    init?(coder: NSCoder, book: Book) {
+        self.book = book
+        super.init(coder: coder)
+    }
 
     /*
     // MARK: - Navigation
