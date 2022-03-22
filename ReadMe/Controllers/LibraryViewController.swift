@@ -9,6 +9,7 @@ import UIKit
 
 class LibraryViewController: UITableViewController {
     
+    // Segue Action to import data from Library VC => Detail VC
     @IBSegueAction func showDetailView(_ coder: NSCoder) -> DetailViewController? {
         guard let indexPath = tableView.indexPathForSelectedRow
         else {
@@ -21,6 +22,12 @@ class LibraryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    //This will reload the cell with the uploaded images
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     //Mark:- DataSource

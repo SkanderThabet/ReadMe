@@ -10,10 +10,23 @@ import UIKit
 class DetailViewController: UIViewController {
     let book : Book
 
+    //Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    //Actions
+    @IBAction func updateImage(){
+        let imagePicker = UIImagePickerController()
+        //we want this Controller to be delegate
+        imagePicker.delegate = self
+        imagePicker.sourceType =
+        UIImagePickerController.isSourceTypeAvailable(.camera)
+        ? .camera
+        : .photoLibrary
+        imagePicker.allowsEditing = true
+         present(imagePicker, animated: true)
     
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +43,14 @@ class DetailViewController: UIViewController {
         self.book = book
         super.init(coder: coder)
     }
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+// This extension is for letting know our Controller that we picked a photo and do something about it
+extension DetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        imageView.image = selectedImage
+        Library.saveImage(selectedImage, forBook: book)
+        dismiss(animated: true)
     }
-    */
-
 }
