@@ -37,10 +37,14 @@ class LibraryViewController: UITableViewController {
     }
     //This method is to setup the cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(BookCell.self)", for: indexPath) as? BookCell
+        else { fatalError("Could not create BookCell") }
+        
         let book = Library.books[indexPath.row]
-        cell.textLabel?.text=book.title
-        cell.imageView?.image=book.image
+        cell.titleLabel.text=book.title
+        cell.authorLabel?.text=book.author
+        cell.bookThumbnail?.image=book.image
+        cell.bookThumbnail.layer.cornerRadius = 12
         return cell
     }
     
