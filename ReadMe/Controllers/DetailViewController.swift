@@ -7,13 +7,14 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UITableViewController {
     let book : Book
 
     //Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var reviewTextView: UITextView!
     //Actions
     @IBAction func updateImage(){
         let imagePicker = UIImagePickerController()
@@ -34,6 +35,11 @@ class DetailViewController: UIViewController {
         imageView.layer.cornerRadius = 16
         titleLabel.text = book.title
         authorLabel.text = book.author
+        
+        if let review = book.review {
+            reviewTextView.text = book.review
+        }
+        reviewTextView.addDoneButton()
 
         // Do any additional setup after loading the view.
     }
@@ -53,5 +59,31 @@ extension DetailViewController: UIImagePickerControllerDelegate, UINavigationCon
         imageView.image = selectedImage
         Library.saveImage(selectedImage, forBook: book)
         dismiss(animated: true)
+    }
+}
+// Tell the Controller that this is a ui text view delegate
+extension DetailViewController: UITextViewDelegate {
+    //implement the text view did end method
+    func textViewDidEndEditing(_ textView: UITextView) {
+        //tell the text view resign first responder
+        textView.resignFirstResponder()
+    }
+}
+
+//Done button
+extension UITextView {
+    //add function done button
+    func addDoneButton() {
+        //start making ui toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        //make done btn
+        //for the selector part we will call the resignfirstResponder method to dismiss the keyboard
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.resignFirstResponder))
+        //add both of these item to the toolbar
+        toolbar.items = [flexSpace,doneButton]
+        //tell the textview to use the toolbar as it's input accesorry view
+        self.inputAccessoryView = toolbar
     }
 }
