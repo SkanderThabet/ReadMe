@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016A69F527EBEB670079B1F3 /* NewBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016A69F427EBEB670079B1F3 /* NewBookViewController.swift */; };
 		01DA095627E94AF600A8EB41 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DA095527E94AF600A8EB41 /* BookCell.swift */; };
 		01F8B83727E68EB1001D0106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F8B83627E68EB1001D0106 /* AppDelegate.swift */; };
 		01F8B83927E68EB1001D0106 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F8B83827E68EB1001D0106 /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		016A69F427EBEB670079B1F3 /* NewBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookViewController.swift; sourceTree = "<group>"; };
 		01DA095527E94AF600A8EB41 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		01F8B83327E68EB1001D0106 /* ReadMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01F8B83627E68EB1001D0106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				01F8B83A27E68EB1001D0106 /* LibraryViewController.swift */,
 				01F8B86C27E69E1E001D0106 /* DetailViewController.swift */,
+				016A69F427EBEB670079B1F3 /* NewBookViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			files = (
 				01F8B86827E691E6001D0106 /* Book.swift in Sources */,
 				01F8B83B27E68EB1001D0106 /* LibraryViewController.swift in Sources */,
+				016A69F527EBEB670079B1F3 /* NewBookViewController.swift in Sources */,
 				01F8B86B27E698F3001D0106 /* Library.swift in Sources */,
 				01DA095627E94AF600A8EB41 /* BookCell.swift in Sources */,
 				01F8B86D27E69E1E001D0106 /* DetailViewController.swift in Sources */,

@@ -36,7 +36,7 @@ class DetailViewController: UITableViewController {
         titleLabel.text = book.title
         authorLabel.text = book.author
         
-        if let review = book.review {
+        if book.review != nil {
             reviewTextView.text = book.review
         }
         reviewTextView.addDoneButton()
